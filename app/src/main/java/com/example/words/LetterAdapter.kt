@@ -1,4 +1,4 @@
-package com.example.wordsapp
+package com.example.words
 
 import android.content.Intent
 import android.os.Build
@@ -9,13 +9,12 @@ import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.Button
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
-import com.example.words.R
+
 
 /**
  * Adapter for the [RecyclerView] in [MainActivity].
  */
-class LetterAdapter :
-    RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
+class LetterAdapter : RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
 
     // Generates a [CharRange] from 'A' to 'Z' and converts it to a list
     private val list = ('A').rangeTo('Z').toList()
@@ -81,3 +80,4 @@ class LetterAdapter :
         }
     }
 }
+

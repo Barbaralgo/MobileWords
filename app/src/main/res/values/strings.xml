@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Words</string>
+    <string name="look_up_words">Later</string>
 </resources>

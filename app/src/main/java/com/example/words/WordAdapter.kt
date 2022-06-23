@@ -1,6 +1,7 @@
-package com.example.wordsapp
+package com.example.words
 
 import android.content.Context
+import android.net.Uri
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +11,11 @@ import android.widget.Button
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 
+
 /**
  * Adapter for the [RecyclerView] in [DetailActivity].
  */
-class WordAdapter(private val letterId: String, context: Context) :
-    RecyclerView.Adapter<WordAdapter.WordViewHolder>() {
+class WordAdapter(private val letterId: String, context: Context) : RecyclerView.Adapter<WordAdapter.WordViewHolder>() {
 
     private val filteredWords: List<String>
 
@@ -24,7 +25,7 @@ class WordAdapter(private val letterId: String, context: Context) :
 
         filteredWords = words
             // Returns items in a collection if the conditional clause is true,
-            // in this case if an item starts with the given letter,
+            // in this case if an item starts with the given letter
             // ignoring UPPERCASE or lowercase.
             .filter { it.startsWith(letterId, ignoreCase = true) }
             // Returns a collection that it has shuffled in place
@@ -67,8 +68,10 @@ class WordAdapter(private val letterId: String, context: Context) :
         // Set the text of the WordViewHolder
         holder.button.text = item
         holder.button.setOnClickListener {
-            val queryUrl: Uri = Uri.parse("${DetailActivity.SEARCH_PREFIX}${item}")
-        }
+            val queryUrl: Uri =
+                Uri.parse("${DetailActivity.SEARCH_PREFIX}${item}")
+
+
 
     }
     // Setup custom accessibility delegate to set the text read with
@@ -84,7 +87,7 @@ class WordAdapter(private val letterId: String, context: Context) :
             // accessibility service announces "double tap to activate".
             // If a custom string is provided,
             // it announces "double tap to <custom string>".
-            val customString = host?.context?.getString(R.string.look_up_word)
+            val customString = host?.context?.getString(R.string.look_up_words)
             val customClick =
                 AccessibilityNodeInfo.AccessibilityAction(
                     AccessibilityNodeInfo.ACTION_CLICK,

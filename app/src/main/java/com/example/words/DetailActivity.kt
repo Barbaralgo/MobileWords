@@ -1,11 +1,12 @@
-package com.example.wordsapp
+package com.example.words
+
 
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.wordsapp.databinding.ActivityDetailBinding
+import com.example.words.databinding.ActivityDetailBinding
 
 
 class DetailActivity : AppCompatActivity() {
@@ -23,15 +24,17 @@ class DetailActivity : AppCompatActivity() {
         val recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = WordAdapter(letterId, this)
+
+
         recyclerView.addItemDecoration(
             DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
-
-
         )
 
 
-        title = getString(R.string.detail_prefix) + " " + letterId
+        title = letterId
+
     }
+
     companion object {
         const val LETTER = "letter"
         const val SEARCH_PREFIX = "https://www.google.com/search?q="
